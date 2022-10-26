@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  test:
+    container_name: test01
+    build: .
+    command: pytest .
+  lint:
+    container_name: lint01
+    build: .
+    command: flake8 --exclude .venv,__pycache__,.mypy_cache
+  example:
+    container_name: example01
+    build: .
+    command: python kombat.py fixture/1.json
